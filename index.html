@@ -1,570 +1,402 @@
-<!doctype html>
-<html lang="es" data-lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sergio Granados Ferrera — CV</title>
-<meta name="description" content="Currículum de Sergio Granados Ferrera, ingeniero aeroespacial de Sevilla con el sector espacial europeo como objetivo.">
-<meta name="theme-color" content="#E60012">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@900&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>roshan - Launch Your Daily Apps in Order</title>
+<meta name="description" content="Download roshan for Windows. Start the apps and commands you use every day in one click, in the right order. Small, offline, open source launcher built with Rust and GPUI.">
+<meta name="keywords" content="roshan, desktop, gpui, launcher, open-source, persian, productivity, rust, windows, app launcher, Windows launcher, one-click launcher, offline launcher">
+<meta name="author" content="roshan">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f8fafc">
+<link rel="canonical" href="https://github.com/kkkknrg/roshan">
+<meta property="og:title" content="roshan - Launch Your Daily Apps in Order">
+<meta property="og:description" content="Start the apps and commands you use every day in one click, in the right order. Small, offline, open source for Windows.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://github.com/kkkknrg/roshan">
+<meta property="og:site_name" content="roshan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="roshan - Launch Your Daily Apps in Order">
+<meta name="twitter:description" content="Download roshan for Windows. One-click ordered launching for your everyday apps and commands.">
+<style>
+  :root {
+    --ink: #172033;
+    --muted: #4b5563;
+    --line: #e5e7eb;
+    --card: #ffffff;
+    --soft: #f3f6fb;
+    --accent: #0f766e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: #f8fafc;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .page {
+    width: min(940px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 40px 0 56px;
+  }
+  h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 4.4vw, 3rem);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+  h3 {
+    margin: 24px 0 8px;
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+  p { margin: 0 0 16px; }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--muted);
+    max-width: 760px;
+    margin-bottom: 22px;
+  }
+  .top-download {
+    display: inline-block;
+    margin: 4px 0 12px;
+    padding: 15px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 32%, #48dbfb 67%, #1dd1a1 100%);
+    color: #111827;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.16), 0 3px 8px rgba(17, 24, 39, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+  }
+  .top-download:hover, .button:hover { filter: brightness(0.96); }
+  section {
+    margin: 34px 0;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07), 0 3px 10px rgba(15, 23, 42, 0.04);
+  }
+  .soft-card {
+    background: var(--soft);
+    border: 1px solid #e1e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+  }
+  .button {
+    display: inline-block;
+    margin: 8px 0 4px;
+    padding: 14px 22px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0f766e, #2563eb);
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22), 0 2px 6px rgba(15, 23, 42, 0.12);
+  }
+  .button:focus-visible, .top-download:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 3px;
+  }
+  ul, ol { padding-left: 1.35rem; margin: 0 0 18px; }
+  li { margin: 0 0 10px; }
+  .muted { color: var(--<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>roshan - Launch Your Daily Apps in Order</title>
+<meta name="description" content="Download roshan for Windows. Start the apps and commands you use every day in one click, in the right order. Small, offline, open source launcher built with Rust and GPUI.">
+<meta name="keywords" content="roshan, desktop, gpui, launcher, open-source, persian, productivity, rust, windows, app launcher, Windows launcher, one-click launcher, offline launcher">
+<meta name="author" content="roshan">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f8fafc">
+<link rel="canonical" href="https://github.com/kkkknrg/roshan">
+<meta property="og:title" content="roshan - Launch Your Daily Apps in Order">
+<meta property="og:description" content="Start the apps and commands you use every day in one click, in the right order. Small, offline, open source for Windows.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://github.com/kkkknrg/roshan">
+<meta property="og:site_name" content="roshan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="roshan - Launch Your Daily Apps in Order">
+<meta name="twitter:description" content="Download roshan for Windows. One-click ordered launching for your everyday apps and commands.">
+<style>
+  :root {
+    --ink: #172033;
+    --muted: #4b5563;
+    --line: #e5e7eb;
+    --card: #ffffff;
+    --soft: #f3f6fb;
+    --accent: #0f766e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: #f8fafc;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .page {
+    width: min(940px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 40px 0 56px;
+  }
+  h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 4.4vw, 3rem);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+  h3 {
+    margin: 24px 0 8px;
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+  p { margin: 0 0 16px; }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--muted);
+    max-width: 760px;
+    margin-bottom: 22px;
+  }
+  .top-download {
+    display: inline-block;
+    margin: 4px 0 12px;
+    padding: 15px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 32%, #48dbfb 67%, #1dd1a1 100%);
+    color: #111827;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.16), 0 3px 8px rgba(17, 24, 39, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+  }
+  .top-download:hover, .button:hover { filter: brightness(0.96); }
+  section {
+    margin: 34px 0;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07), 0 3px 10px rgba(15, 23, 42, 0.04);
+  }
+  .soft-card {
+    background: var(--soft);
+    border: 1px solid #e1e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+  }
+  .button {
+    display: inline-block;
+    margin: 8px 0 4px;
+    padding: 14px 22px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0f766e, #2563eb);
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22), 0 2px 6px rgba(15, 23, 42, 0.12);
+  }
+  .button:focus-visible, .top-download:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 3px;
+  }
+  ul, ol { padding-left: 1.35rem; margin: 0 0 18px; }
+  li { margin: 0 0 10px; }
+  .muted { color: var(--muted); }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 0;
+  }
+  .pill {
+    background: #eef2f7;
+    border: 1px solid #dbe4ee;
+    color: #334155;
+    border-radius: 999px;
+    padding: 5px 11px;
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .feature {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+  }
+  .feature strong { display: block; margin-bottom: 4px; }
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .faq-item:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  footer {
+    margin-top: 42px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+  a { color: #0f5f9e; }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .page { width: min(100% - 28px, 940px); padding-top: 28px; }
+    .card, .soft-card { padding: 18px; border-radius: 16px; }
+    .top-download { width: 100%; text-align: center; }
+  }
+</style>
 </head>
-<body>
+<body style="margin:0; background:#f8fafc; color:#172033;">
+<main class="page">
 
-<!-- Iconos propios -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <!-- semitono para iconos gigantes de fondo (en unidades del icono, 24×24) -->
-    <pattern id="ht-ic" width=".72" height=".72" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
-      <circle cx=".36" cy=".36" r=".22" fill="#8A0010"/>
-    </pattern>
-    <pattern id="ht-ic-k" width=".72" height=".72" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
-      <circle cx=".36" cy=".36" r=".24" fill="#000"/>
-    </pattern>
-  </defs>
-  <symbol id="ic-perfil" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4.6"/><path d="M2.5 22.5c.4-5.6 4.4-8.6 9.5-8.6s9.1 3 9.5 8.6z"/></symbol>
-  <symbol id="ic-formacion" viewBox="0 0 24 24"><path d="M1.5 4.5 11 6.8v14.4l-9.5-2.4zM22.5 4.5 13 6.8v14.4l9.5-2.4z"/></symbol>
-  <symbol id="ic-investigacion" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><path d="M12 5.2c6.3 0 11 2.9 11 6.8s-4.7 6.8-11 6.8S1 15.9 1 12s4.7-6.8 11-6.8zm0 2.3c-5 0-8.6 2.1-8.6 4.5s3.6 4.5 8.6 4.5 8.6-2.1 8.6-4.5-3.6-4.5-8.6-4.5z"/></symbol>
-  <symbol id="ic-experiencia" viewBox="0 0 24 24"><path d="M12 1.5 14.6 8.6 22.5 8.9 16.2 13.6 18.5 21.2 12 16.7 5.5 21.2 7.8 13.6 1.5 8.9 9.4 8.6z"/></symbol>
-  <symbol id="ic-herramientas" viewBox="0 0 24 24"><path d="M21.8 6.2a5.6 5.6 0 0 1-7.3 6.1l-8.3 8.3a2.4 2.4 0 1 1-3.4-3.4l8.3-8.3a5.6 5.6 0 0 1 6.1-7.3l-3.3 3.3.9 2.8 2.8.9z"/></symbol>
-  <symbol id="ic-idiomas" viewBox="0 0 24 24"><path d="M2 3h20v13.5h-9.5L6.5 21.5v-5H2z"/></symbol>
-  <symbol id="ic-mas" viewBox="0 0 24 24"><path d="M8.5 2.5h13v4.2h-9v10.6a4 4 0 1 1-4-4z"/></symbol>
-  <symbol id="ic-contacto" viewBox="0 0 24 24"><path d="M1.5 4.5h21v15h-21zm2.6 2.3 7.9 6 7.9-6z"/></symbol>
-  <symbol id="ic-plane" viewBox="0 0 24 24"><path d="M22.5 2 1.5 10.5l7.8 3 2.7 8 3.3-5.6 5.1 3.3z"/></symbol>
-  <symbol id="ic-sat" viewBox="0 0 24 24"><path d="M9 9.5h6v5H9zM1 8h6v8H1zm16 0h6v8h-6zM11 4h2v5h-2zm-.5-3h3v3h-3z"/></symbol>
-  <symbol id="ic-sphere" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="m12.5 13.4 9.3 9.1-.9.9-9.3-9.1zm1.6-2.6 9.4 4.7-.6 1.1-9.4-4.7zm-3.3 3.6 2.5 9.3-1.2.3-2.5-9.3z"/></symbol>
-  <symbol id="ic-flag" viewBox="0 0 24 24"><path d="M3 1.5h2v21H3zM6 2.5h15v11H6zm0 0v5.5h5V2.5zm5 5.5v5.5h5V8zm5-5.5V8h5V2.5z"/></symbol>
-  <symbol id="ic-calc" viewBox="0 0 24 24"><path d="M3 1.5h18v21H3zm2.5 2.5v5h13V4zm0 7.5v3h3v-3zm5 0v3h3v-3zm5 0v3h3v-3zm-10 5v3h3v-3zm5 0v3h3v-3zm5 0v3h3v-3z"/></symbol>
-  <symbol id="ic-code" viewBox="0 0 24 24"><path d="M7.6 5.2 9.4 7 4.4 12l5 5-1.8 1.8L.8 12zm8.8 0L23.2 12l-6.8 6.8-1.8-1.8 5-5-5-5z"/></symbol>
-  <symbol id="ic-cube" viewBox="0 0 24 24"><path d="M12 1 22 6.5v11L12 23 2 17.5v-11zm0 2.6L5 7.4l7 3.9 7-3.9zM4.4 9.4v6.7l6.4 3.6V13zm15.2 0L13.2 13v6.7l6.4-3.6z"/></symbol>
-  <symbol id="ic-mesh" viewBox="0 0 24 24"><path d="M2 2h20v20H2zm2.4 2.4v5.2l5.2-5.2zm8.6 0L4.4 13v6.6L19.6 4.4zm6.6 3.4L7.8 19.6h5.2l6.6-6.6zm0 8.6-3.2 3.2h3.2z"/></symbol>
-  <symbol id="ic-doc" viewBox="0 0 24 24"><path d="M4 1.5h11l5 5v16H4zm9.5 1.8v4.7h4.7zM7 11v2h10v-2zm0 4v2h10v-2zm0 4v2h7v-2z"/></symbol>
-  <symbol id="ic-anim" viewBox="0 0 24 24"><path d="M2 21.5c3.5 0 4.6-4.4 5.8-9.2S10.6 2.5 14.5 2.5h7.5v2.6h-7.5c-2 0-2.8 3-4.1 8-1.2 4.8-2.6 11-8.4 11z"/><circle cx="18.5" cy="17.5" r="3.5"/></symbol>
-  <symbol id="star" viewBox="0 0 100 100"><polygon points="50,0 61,36 100,38 69,61 80,100 50,76 20,100 31,61 0,38 39,36"/></symbol>
-</svg>
-
-<!-- Fondo: trama de semitono y estrellas -->
-<div class="backdrop" aria-hidden="true">
-  <div class="dots dots--a"></div>
-  <div class="dots dots--b"></div>
-  <svg class="star star--1"><use href="#star"/></svg>
-  <svg class="star star--2"><use href="#star"/></svg>
-  <svg class="star star--3"><use href="#star"/></svg>
+<h1>🚀 roshan - Launch Your Daily Apps in Order</h1>
+<p class="lede">roshan is a small Windows launcher that starts the apps and commands you use every day in one click, in the right order. It is offline, open source, and built with Rust and GPUI.</p>
+<a class="top-download" href="https://github.com/kkkknrg/roshan/releases">Download roshan for Windows</a>
+<div class="pill-row">
+  <span class="pill">Windows</span>
+  <span class="pill">One-click launch</span>
+  <span class="pill">Offline</span>
+  <span class="pill">Open source</span>
+  <span class="pill">Rust + GPUI</span>
 </div>
 
-<!-- Barra superior -->
-<header class="topbar">
-  <button class="chip chip--lang" id="lang-toggle" type="button" aria-label="Cambiar idioma / Switch language">
-    <span class="chip__opt" data-opt="es">ES</span><span class="chip__opt" data-opt="en">EN</span>
-  </button>
-  <a class="chip chip--pdf" href="cv/sergio-granados-ferrera-cv.pdf" download>
-    <span class="pdf-long"><span data-l="es">Descargar PDF</span><span data-l="en">Download PDF</span></span><span class="pdf-short">PDF</span>
-  </a>
-</header>
+<section>
+<h2>✨ What roshan Does</h2>
+<p>Many people open the same set of programs every morning: a browser, a chat app, a notes tool, a music player, or a command window. Doing that by hand takes time, and the order can matter. One app may need to be ready before another. roshan gives you a simple way to start that whole routine in one click, in the order you choose.</p>
+<p>roshan is designed for everyday use, not for complex automation. It is small, it works offline, and it keeps your setup simple. You do not need programming knowledge to use it. The idea is straightforward: put your daily apps and commands into a launch routine, then start that routine when you begin work, class, or a project session.</p>
+<div class="card">
+<h3>Made for the way you start your day</h3>
+<ul>
+  <li>Start several everyday apps with one action.</li>
+  <li>Keep the launch order consistent so your routine feels the same each time.</li>
+  <li>Use it offline, without relying on a web service.</li>
+  <li>Keep things light with a small desktop tool built in Rust and GPUI.</li>
+  <li>Inspect and improve the project because it is open source.</li>
+</ul>
+</div>
+</section>
 
-<main id="app">
+<section>
+<h2>🧩 Why Launch Order Matters</h2>
+<p>When you open apps manually, you may click one program, wait, then click another. If the second program depends on the first, you might see errors, delays, or windows that open before you are ready. A repeatable order removes that small friction. It helps your desktop settle into the same working state each time.</p>
+<p>roshan is built around that idea. Instead of treating apps as separate chores, it treats your daily setup as one routine. That makes it useful for people who want a calmer start and fewer repeated clicks. It is especially helpful if you open the same group of tools every day and want them to appear in a predictable sequence.</p>
+</section>
 
-  <!-- ============ MENÚ PRINCIPAL: abanico alrededor de la órbita ============ -->
-  <section class="screen screen--menu" id="menu" aria-labelledby="menu-title">
-    <div class="bands" aria-hidden="true">
-      <div class="band band--1"><div class="band__track" data-text="Sergio Granados Ferrera ✦ "></div></div>
-    </div>
-    <div class="echo" aria-hidden="true"><span id="echo"></span></div>
+<section>
+<h2>🧱 What You Can Expect</h2>
+<div class="feature-grid">
+  <div class="feature"><strong>One-click start</strong>Begin your daily app routine without opening each program by hand.</div>
+  <div class="feature"><strong>Ordered launching</strong>Keep the sequence of apps and commands consistent.</div>
+  <div class="feature"><strong>Small footprint</strong>A focused desktop launcher built with Rust and GPUI.</div>
+  <div class="feature"><strong>Offline use</strong>Your launcher routine does not need a web connection.</div>
+  <div class="feature"><strong>Open source</strong>The project is open for inspection and community improvement.</div>
+  <div class="feature"><strong>Windows desktop</strong>Designed for the Windows environment named in the project topics.</div>
+</div>
+</section>
 
-    <!-- Escritorio: panel diagonal en blanco y negro con un satélite -->
-    <div class="landing" id="landing" aria-hidden="true">
-      <svg class="landing__bg comic" data-comic="ld" data-focus="410,470" viewBox="0 0 600 1000" preserveAspectRatio="xMidYMid slice"></svg>
-      <svg class="landing__sat" viewBox="0 0 400 400">
-        <defs>
-          <symbol id="sat-shape" viewBox="0 0 400 400">
-            <g transform="rotate(-22 200 200)">
-              <path class="s-strut" d="M140 205H158M242 205H260"/>
-              <rect x="16" y="170" width="124" height="70"/>
-              <path class="s-grid" d="M47 170V240M78 170V240M109 170V240M16 205H140"/>
-              <rect x="260" y="170" width="124" height="70"/>
-              <path class="s-grid" d="M291 170V240M322 170V240M353 170V240M260 205H384"/>
-              <rect x="158" y="150" width="84" height="110"/>
-              <path class="s-grid" d="M158 186H242M158 222H242"/>
-              <path d="M170 150C170 112 230 112 230 150Z"/>
-              <path class="s-strut" d="M200 124V82"/>
-              <circle cx="200" cy="74" r="10"/>
-              <path d="M178 260L170 292H230L222 260Z"/>
-            </g>
-          </symbol>
-        </defs>
-        <use class="sat-shadow" href="#sat-shape"/>
-        <use class="sat-main" href="#sat-shape"/>
-      </svg>
-      <p class="landing__tag">
-        <span class="landing__big"><span class="opt__word" data-l="es">Currículum web</span><span class="opt__word" data-l="en">Web CV</span></span>
-        <span class="landing__small"><span data-l="es">inspirado en el videojuego Persona 5</span><span data-l="en">inspired by the video game Persona 5</span></span>
-      </p>
-    </div>
+<section>
+<h2>💻 Download and Setup</h2>
+<div class="soft-card">
+<p>roshan is available from the official GitHub releases page. Visit this link to download the application.</p>
+<a class="button" href="https://github.com/kkkknrg/roshan/releases">Visit the roshan releases page</a>
+<p style="margin-top:16px;">Use the official releases page to get the application. The page is the main place where roshan downloads are published.</p>
+</div>
+</section>
 
-    <div class="menu__head">
-      <h1 class="ransom ransom--xl" id="menu-title" data-ransom>Sergio Granados Ferrera</h1>
-    </div>
-    <p class="menu__tag">
-      <span data-l="es">Ingeniero aeroespacial en Sevilla. Rumbo al sector espacial europeo.</span>
-      <span data-l="en">Aerospace engineer based in Seville. Heading for the European space sector.</span>
-    </p>
+<section>
+<h2>🖱️ First Launch</h2>
+<p>After the download finishes, open roshan and begin setting up the apps and commands you want to start together. The main idea is to build a routine that matches your day: the browser you open first, the chat app you check next, the notes file you keep nearby, or the command window you use for a project.</p>
+<p>Keep your first routine simple. Start with two or three apps you use every morning. Once that feels natural, add more tools or commands. The goal is not to create a complicated system. The goal is to remove repeated clicks and make your daily start feel predictable.</p>
+<ul>
+  <li>Choose the apps you open most often.</li>
+  <li>Arrange them in the order you normally use them.</li>
+  <li>Run the routine when you begin work or study.</li>
+  <li>Adjust the order whenever your day changes.</li>
+</ul>
+</section>
 
-    <!-- Órbita VLEO en el centro del abanico -->
-    <figure class="orbit" id="orbit" aria-hidden="true">
-      <svg viewBox="0 0 400 400">
-        <defs>
-          <pattern id="halftone" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
-            <circle cx="4.5" cy="4.5" r="2.6" fill="#8A0010"/>
-          </pattern>
-          <radialGradient id="shade" cx="35%" cy="30%" r="75%">
-            <stop offset="0" stop-color="#fff" stop-opacity="0"/>
-            <stop offset=".6" stop-color="#000" stop-opacity=".15"/>
-            <stop offset="1" stop-color="#000" stop-opacity=".75"/>
-          </radialGradient>
-          <clipPath id="front"><rect x="0" y="200" width="400" height="200"/></clipPath>
-        </defs>
-        <g transform="rotate(-22 200 200)">
-          <ellipse class="orbit__ring" cx="200" cy="200" rx="180" ry="62"/>
-          <ellipse class="orbit__ring orbit__ring--low" cx="200" cy="200" rx="138" ry="44"/>
-        </g>
-        <circle cx="200" cy="200" r="118" fill="#000"/>
-        <circle cx="200" cy="200" r="118" fill="url(#halftone)"/>
-        <circle cx="200" cy="200" r="118" fill="url(#shade)"/>
-        <g transform="rotate(-22 200 200)" clip-path="url(#front)">
-          <ellipse class="orbit__ring" cx="200" cy="200" rx="180" ry="62"/>
-          <ellipse class="orbit__ring orbit__ring--low" cx="200" cy="200" rx="138" ry="44"/>
-        </g>
-        <g id="sat"><polygon points="0,-16 4.5,-5 16,-5 7,2 10.5,14 0,7 -10.5,14 -7,2 -16,-5 -4.5,-5"/></g>
-      </svg>
-      <figcaption class="orbit__alt"><span id="alt">300</span> km</figcaption>
-    </figure>
+<section>
+<h2>🔒 Offline and Open Source</h2>
+<p>roshan is described as small, offline, and open source. That matters for people who want a desktop utility that does its job without adding an online account or a cloud dependency. It is a local launcher for local routines.</p>
+<p>Because it is open source, users and developers can review how it works, report issues, and suggest improvements. The project is built with Rust and GPUI, which reflects a focus on a modern desktop tool that stays lightweight. The repository topics also include Persian, which points to an interest in making the tool useful for Persian-speaking users.</p>
+</section>
 
-    <nav class="fan" aria-label="Secciones del CV">
-      <ul class="fan__list">
-        <li><a class="opt" href="#perfil">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-perfil"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Perfil</span><span class="opt__word" data-l="en">Profile</span></span>
-          <span class="opt__sub"><span data-l="es">Ficha de personaje</span><span data-l="en">Character sheet</span></span></span></a></li>
-        <li><a class="opt" href="#formacion">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-formacion"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Formación</span><span class="opt__word" data-l="en">Education</span></span>
-          <span class="opt__sub"><span data-l="es">Grado y dos másteres</span><span data-l="en">Degree and two master's</span></span></span></a></li>
-        <li><a class="opt" href="#investigacion">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-investigacion"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Investigación</span><span class="opt__word" data-l="en">Research</span></span>
-          <span class="opt__sub"><span data-l="es">TFM en órbita muy baja</span><span data-l="en">Thesis on very low orbit</span></span></span></a></li>
-        <li><a class="opt" href="#experiencia">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-experiencia"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Experiencia</span><span class="opt__word" data-l="en">Experience</span></span>
-          <span class="opt__sub"><span data-l="es">EUROAVIA, ARUS, Sputnik y FYCUS</span><span data-l="en">EUROAVIA, ARUS, Sputnik and FYCUS</span></span></span></a></li>
-        <li><a class="opt" href="#herramientas">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-herramientas"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Herramientas</span><span class="opt__word" data-l="en">Tools</span></span>
-          <span class="opt__sub"><span data-l="es">Siete habilidades</span><span data-l="en">Seven skills</span></span></span></a></li>
-        <li><a class="opt" href="#idiomas">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-idiomas"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Idiomas</span><span class="opt__word" data-l="en">Languages</span></span>
-          <span class="opt__sub"><span data-l="es">Español, inglés C1, francés B1</span><span data-l="en">Spanish, English C1, French B1</span></span></span></a></li>
-        <li><a class="opt" href="#mas">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-mas"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Más allá</span><span class="opt__word" data-l="en">Beyond</span></span>
-          <span class="opt__sub"><span data-l="es">Escenario, música y divulgación</span><span data-l="en">Stage, music and outreach</span></span></span></a></li>
-        <li><a class="opt" href="#contacto">
-          <span class="opt__pill" aria-hidden="true"><svg><use href="#ic-contacto"/></svg></span>
-          <span class="opt__body"><span class="opt__block"><span class="opt__word" data-l="es">Contacto</span><span class="opt__word" data-l="en">Contact</span></span>
-          <span class="opt__sub"><span data-l="es">Correo y GitHub</span><span data-l="en">Email and GitHub</span></span></span></a></li>
-      </ul>
-    </nav>
+<section>
+<h2>🚀 Everyday Use Cases</h2>
+<p>roshan fits simple, repeatable moments. You might use it when you sit down to work and want your main tools ready in a familiar order. You might use it before a study session, when a browser, a notes app, and a timer need to be open together. You might use it for a project routine that includes a code editor, a terminal, and a reference document.</p>
+<p>It can also help reduce decision fatigue. Instead of asking which app to open first, you start your prepared routine and move on to the actual task. That is the practical benefit of a launcher like roshan: less setup, more focus.</p>
+</section>
 
-    <p class="menu__keys" aria-hidden="true">
-      <span data-l="es">↑↓ elegir, Enter abrir, Esc volver</span>
-      <span data-l="en">↑↓ choose, Enter open, Esc back</span>
-    </p>
-  </section>
+<section>
+<h2>❓ Common Questions</h2>
+<div class="card">
+<div class="faq-item">
+<h3>Do I need programming knowledge to use roshan?</h3>
+<p>No. roshan is intended as an end-user desktop tool. You can use it to start everyday apps and commands without writing code.</p>
+</div>
+<div class="faq-item">
+<h3>Does roshan need an internet connection?</h3>
+<p>No. It is described as an offline tool. You can use it without relying on an online service for your launch routine.</p>
+</div>
+<div class="faq-item">
+<h3>Where do I download roshan?</h3>
+<p>Visit the official releases page: <a href="https://github.com/kkkknrg/roshan/releases">https://github.com/kkkknrg/roshan/releases</a>. Use that page to download the application.</p>
+</div>
+<div class="faq-item">
+<h3>Is roshan open source?</h3>
+<p>Yes. The project is open source and built with Rust and GPUI. The repository is available for review and community feedback.</p>
+</div>
+<div class="faq-item">
+<h3>What platform is roshan for?</h3>
+<p>roshan is listed for Windows. The project topics include Windows, desktop, and productivity.</p>
+</div>
+</div>
+</section>
 
-  <!-- ============ PERFIL: ficha de personaje ============ -->
-  <section class="screen panel panel--perfil" id="perfil" aria-labelledby="t-perfil">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <div class="decor decor--word decor--right" aria-hidden="true"><span data-l="es">Perfil</span><span data-l="en">Profile</span></div>
-    <h2 class="ransom ransom--sm" id="t-perfil" tabindex="-1" data-ransom-es="Perfil" data-ransom-en="Profile">Perfil</h2>
+<section>
+<h2>🛠️ Help and Feedback</h2>
+<p>For downloads, updates, and project information, use the official releases page. If you want to follow the project, report a problem, or learn more about how it is built, visit the repository on GitHub. Clear feedback helps an open-source desktop tool improve for everyday users.</p>
+<a class="button" href="https://github.com/kkkknrg/roshan/releases">Download roshan for Windows</a>
+</section>
 
-    <div class="sheet">
-      <div class="sheet__photo">
-        <!-- FOTO: pon tu imagen en assets/foto.jpg -->
-        <figure class="photo">
-          <div class="photo__frame">
-            <img src="assets/foto.jpg" alt="Sergio Granados Ferrera" onerror="this.closest('.photo').classList.add('is-empty')">
-            <svg class="photo__ph" viewBox="0 0 300 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-              <circle cx="150" cy="150" r="66"/>
-              <path d="M22 400 C30 292 86 240 150 240 C214 240 270 292 278 400 Z"/>
-            </svg>
-          </div>
-        </figure>
-        <ul class="ptags">
-          <li class="ptag ptag--1"><b><span data-l="es">Base</span><span data-l="en">Base</span></b><span data-l="es">Sevilla, España</span><span data-l="en">Seville, Spain</span></li>
-          <li class="ptag ptag--2"><b><span data-l="es">Objetivo</span><span data-l="en">Target</span></b><span data-l="es">Sector espacial europeo, ESA</span><span data-l="en">European space sector, ESA</span></li>
-          <li class="ptag ptag--3"><b><span data-l="es">Escuela</span><span data-l="en">School</span></b><span data-l="es">ETSI, Universidad de Sevilla</span><span data-l="en">ETSI, University of Seville</span></li>
-          <li class="ptag ptag--4"><b><span data-l="es">Idiomas</span><span data-l="en">Languages</span></b><span data-l="es">ES nativo, EN C1, FR B1</span><span data-l="en">ES native, EN C1, FR B1</span></li>
-        </ul>
-      </div>
-
-      <div class="sheet__info">
-        <p class="sheet__class"><span data-l="es">Ingeniero aeroespacial</span><span data-l="en">Aerospace engineer</span></p>
-        <h3 class="sheet__name">Sergio<br>Granados<br>Ferrera</h3>
-        <p class="sheet__bio">
-          <span data-l="es">Ingeniero aeroespacial por la Universidad de Sevilla. Mi objetivo es trabajar en el sector espacial europeo, con la ESA en el punto de mira.</span>
-          <span data-l="en">Aerospace engineer from the University of Seville. My goal is to work in the European space sector, with ESA as the target.</span>
-        </p>
-        <div class="sheet__stats">
-          <p class="sstat"><b>4</b><span data-l="es">años para terminar el grado</span><span data-l="en">years to finish the degree</span></p>
-          <p class="sstat sstat--w"><b>2</b><span data-l="es">másteres a la vez, en curso</span><span data-l="en">master's at once, in progress</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FORMACIÓN: calendario ============ -->
-  <section class="screen panel panel--formacion" id="formacion" aria-labelledby="t-formacion">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <svg class="decor decor--icon decor--br" aria-hidden="true"><use href="#ic-formacion"/></svg>
-    <h2 class="ransom ransom--sm" id="t-formacion" tabindex="-1" data-ransom-es="Formación" data-ransom-en="Education">Formación</h2>
-
-    <div class="cal">
-      <div class="cal__pad" aria-hidden="true">
-        <div class="cal__ring"></div>
-        <div class="cal__stack"></div>
-        <div class="cal__sheet" id="cal-sheet">
-          <span class="cal__year" id="cal-year">2026</span>
-          <span class="cal__note" id="cal-note"></span>
-        </div>
-      </div>
-
-      <ol class="cal__list">
-        <li><button class="cal__item" type="button" data-from="2022" data-to="2026">
-          <span class="cal__range">2022–2026</span>
-          <span class="cal__badge"><span data-l="es">Terminado en 4 años</span><span data-l="en">Completed in 4 years</span></span>
-          <span class="cal__title"><span data-l="es">Grado en Ingeniería Aeroespacial</span><span data-l="en">BSc in Aerospace Engineering</span></span>
-          <span class="cal__meta"><span data-l="es">ETSI, Universidad de Sevilla</span><span data-l="en">ETSI, University of Seville</span></span>
-          <span class="cal__bar" aria-hidden="true"><i></i></span>
-        </button></li>
-        <li><button class="cal__item" type="button" data-from="2026" data-to="2027">
-          <span class="cal__range">2026–2027</span>
-          <span class="cal__badge cal__badge--live"><span data-l="es">En curso</span><span data-l="en">In progress</span></span>
-          <span class="cal__title"><span data-l="es">Máster en Operación de Sistemas Espaciales</span><span data-l="en">MSc in Space Systems Operations</span></span>
-          <span class="cal__meta"><span data-l="es">MOSE, Universidad de Sevilla</span><span data-l="en">MOSE, University of Seville</span></span>
-          <span class="cal__bar" aria-hidden="true"><i></i></span>
-        </button></li>
-        <li><button class="cal__item" type="button" data-from="2026" data-to="2028">
-          <span class="cal__range">2026–2028</span>
-          <span class="cal__badge cal__badge--live"><span data-l="es">En curso</span><span data-l="en">In progress</span></span>
-          <span class="cal__title"><span data-l="es">Máster en Astrofísica y Técnicas de Observación</span><span data-l="en">MSc in Astrophysics and Observation Techniques</span></span>
-          <span class="cal__meta">UNIR</span>
-          <span class="cal__bar" aria-hidden="true"><i></i></span>
-        </button></li>
-      </ol>
-      <p class="cal__axis" aria-hidden="true"><span>2022</span><span>2024</span><span>2026</span><span>2028</span></p>
-    </div>
-  </section>
-
-  <!-- ============ INVESTIGACIÓN: pantalla de misión ============ -->
-  <section class="screen panel panel--investigacion" id="investigacion" aria-labelledby="t-investigacion">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <svg class="decor decor--icon decor--tr" aria-hidden="true"><use href="#ic-investigacion"/></svg>
-    <h2 class="ransom ransom--sm" id="t-investigacion" tabindex="-1" data-ransom-es="Investigación" data-ransom-en="Research">Investigación</h2>
-
-    <div class="mis">
-      <article class="mis__target">
-        <p class="mis__label"><span data-l="es">Objetivo</span><span data-l="en">Target</span></p>
-        <p class="mis__status"><span data-l="es">Trabajo Fin de Máster, en curso</span><span data-l="en">Master's thesis, in progress</span></p>
-        <h3 class="mis__title"><span data-l="es">Incertidumbre en la vida útil orbital en VLEO</span><span data-l="en">Uncertainty in orbital lifetime in VLEO</span></h3>
-        <p class="mis__text"><span data-l="es">Caracterización de la procedencia de la incertidumbre en la vida útil a partir de entradas como el F10.7, el coeficiente balístico o el error del modelo de densidad.</span><span data-l="en">Characterising where lifetime uncertainty comes from, based on inputs such as F10.7, the ballistic coefficient and density model error.</span></p>
-        <ul class="mis__inputs">
-          <li><b>F10.7</b><span data-l="es">flujo solar</span><span data-l="en">solar flux</span></li>
-          <li><b>B</b><span data-l="es">coeficiente balístico</span><span data-l="en">ballistic coefficient</span></li>
-          <li><b>ρ</b><span data-l="es">error del modelo de densidad</span><span data-l="en">density model error</span></li>
-          <li class="is-out"><b>T</b><span data-l="es">vida útil orbital</span><span data-l="en">orbital lifetime</span></li>
-        </ul>
-      </article>
-
-      <div class="mis__report">
-        <p class="mis__label mis__label--w"><span data-l="es">Informe</span><span data-l="en">Report</span></p>
-        <!-- SIMULACIÓN DEL TFM: pon tu vídeo en assets/tfm-sim.mp4 -->
-        <div class="mission">
-          <div class="mission__head">
-            <span class="mission__rec" aria-hidden="true"></span>
-            <span data-l="es">Simulación en Python</span><span data-l="en">Python simulation</span>
-            <span class="mission__tc" id="mission-tc" aria-hidden="true">T+ 00:00</span>
-          </div>
-          <button class="mission__screen media" type="button" data-src="assets/tfm-sim.mp4" data-aria-es="Ampliar la simulación a pantalla completa" data-aria-en="Open the simulation full screen">
-            <video src="assets/tfm-sim.mp4" muted loop playsinline preload="metadata" data-auto onerror="this.parentNode.classList.add('is-empty')"></video>
-            <span class="media__ph" aria-hidden="true"><span><span data-l="es">Simulación en preparación</span><span data-l="en">Simulation coming soon</span></span></span>
-            <span class="mission__corner mission__corner--tl" aria-hidden="true"></span>
-            <span class="mission__corner mission__corner--br" aria-hidden="true"></span>
-          </button>
-        </div>
-
-        <figure class="chart-card">
-          <svg class="chart" id="chart" viewBox="0 0 540 300" role="img" aria-labelledby="chart-cap">
-            <defs>
-              <pattern id="band-dots" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
-                <circle cx="3.5" cy="3.5" r="2" fill="#E60012"/>
-              </pattern>
-              <clipPath id="band-clip"><rect id="band-rect" x="0" y="0" width="540" height="300"/></clipPath>
-            </defs>
-            <g class="chart__grid"></g>
-            <path class="chart__band" id="chart-band" clip-path="url(#band-clip)"/>
-            <path class="chart__edge" id="chart-early"/>
-            <path class="chart__edge" id="chart-late"/>
-            <path class="chart__mean" id="chart-mean"/>
-            <polygon class="chart__sat" id="chart-sat" points="0,-11 3,-3.5 11,-3.5 5,1.5 7,10 0,5 -7,10 -5,1.5 -11,-3.5 -3,-3.5"/>
-            <text class="chart__axis" x="14" y="20"><tspan data-l="es">Altitud (km)</tspan><tspan data-l="en">Altitude (km)</tspan></text>
-            <text class="chart__axis" x="526" y="290" text-anchor="end"><tspan data-l="es">tiempo</tspan><tspan data-l="en">time</tspan></text>
-          </svg>
-          <figcaption id="chart-cap">
-            <span data-l="es">Curva ilustrativa: el satélite pierde altura cada vez más rápido y la franja muestra cómo se abre la incertidumbre sobre cuándo reentra.</span>
-            <span data-l="en">Illustrative curve: the satellite loses altitude ever faster, and the band shows how uncertainty about re-entry time widens.</span>
-          </figcaption>
-        </figure>
-      </div>
-
-      <article class="mis__done">
-        <span class="mis__stamp" aria-hidden="true"><span data-l="es">Completada</span><span data-l="en">Cleared</span></span>
-        <p class="mis__status"><span data-l="es">Trabajo Fin de Grado, terminado</span><span data-l="en">Bachelor's thesis, completed</span></p>
-        <h3 class="mis__title mis__title--sm"><span data-l="es">Diseño conceptual y dimensionado propulsivo de UAVs de ala fija eléctricos</span><span data-l="en">Conceptual design and propulsion sizing of electric fixed-wing UAVs</span></h3>
-      </article>
-    </div>
-  </section>
-
-  <!-- ============ EXPERIENCIA: confidentes ============ -->
-  <section class="screen panel panel--experiencia" id="experiencia" aria-labelledby="t-experiencia">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <div class="decor decor--word decor--right" aria-hidden="true"><span data-l="es">Experiencia</span><span data-l="en">Experience</span></div>
-    <h2 class="ransom ransom--sm" id="t-experiencia" tabindex="-1" data-ransom-es="Experiencia" data-ransom-en="Experience">Experiencia</h2>
-
-    <div class="confwrap">
-    <ul class="conf">
-      <li class="conf__row">
-        <button class="conf__head" type="button" aria-expanded="false" aria-controls="conf-1">
-          <span class="conf__card" aria-hidden="true"><svg><use href="#ic-plane"/></svg></span>
-          <span class="conf__name">EUROAVIA</span>
-          <span class="conf__role"><span data-l="es">Trainer internacional</span><span data-l="en">International trainer</span></span>
-          <span class="conf__time"><span data-l="es">3 años</span><span data-l="en">3 years</span></span>
-        </button>
-        <div class="conf__body" id="conf-1">
-          <div class="conf__inner">
-            <p class="conf__desc"><span data-l="es">Asociación europea de estudiantes aeroespaciales.</span><span data-l="en">European aerospace students association.</span></p>
-            <ul class="conf__list">
-              <li><span data-l="es">Trainer internacional, certificado internamente en el Train New Trainers de Pisa.</span><span data-l="en">International trainer, internally certified at Train New Trainers in Pisa.</span></li>
-              <li><span data-l="es">Pitcher del ETS.</span><span data-l="en">Pitcher at the ETS.</span></li>
-              <li><span data-l="es">Introdujo a EUROAVIA en el Space and Defence Sevilla Summit.</span><span data-l="en">Brought EUROAVIA into the Space and Defence Sevilla Summit.</span></li>
-            </ul>
-          </div>
-        </div>
-      </li>
-      <li class="conf__row">
-        <button class="conf__head" type="button" aria-expanded="false" aria-controls="conf-2">
-          <span class="conf__card" aria-hidden="true"><svg><use href="#ic-sat"/></svg></span>
-          <span class="conf__name">FYCUS</span>
-          <span class="conf__role"><span data-l="es">Investigación</span><span data-l="en">Research</span></span>
-        </button>
-        <div class="conf__body" id="conf-2">
-          <div class="conf__inner">
-            <p class="conf__desc"><span data-l="es">Investigación para una misión en órbita muy baja (VLEO).</span><span data-l="en">Research for a very low Earth orbit (VLEO) mission.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="conf__row">
-        <button class="conf__head" type="button" aria-expanded="false" aria-controls="conf-3">
-          <span class="conf__card" aria-hidden="true"><svg><use href="#ic-sphere"/></svg></span>
-          <span class="conf__name">Sputnik</span>
-          <span class="conf__role"><span data-l="es">Becario</span><span data-l="en">Fellow</span></span>
-        </button>
-        <div class="conf__body" id="conf-3">
-          <div class="conf__inner">
-            <p class="conf__desc"><span data-l="es">Becario de la IV edición del programa Sputnik.</span><span data-l="en">Fellow of the 4th edition of the Sputnik programme.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="conf__row">
-        <button class="conf__head" type="button" aria-expanded="false" aria-controls="conf-4">
-          <span class="conf__card" aria-hidden="true"><svg><use href="#ic-flag"/></svg></span>
-          <span class="conf__name">ARUS</span>
-          <span class="conf__role"><span data-l="es">Coordinador de eventos</span><span data-l="en">Events coordinator</span></span>
-        </button>
-        <div class="conf__body" id="conf-4">
-          <div class="conf__inner">
-            <p class="conf__desc"><span data-l="es">Coordinador de eventos del equipo ARUS Formula Student.</span><span data-l="en">Events coordinator for the ARUS Formula Student team.</span></p>
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <!-- Escritorio: panel de detalle de la fila seleccionada (lo rellena el JS) -->
-    <aside class="cdet" id="cdet" aria-live="polite">
-      <svg class="cdet__emblem" aria-hidden="true"><use href="#ic-plane"/></svg>
-      <div class="cdet__plate">
-        <p class="cdet__role"></p>
-        <h3 class="cdet__name"></h3>
-        <p class="cdet__time"></p>
-      </div>
-      <div class="cdet__body"></div>
-    </aside>
-    </div>
-  </section>
-
-  <!-- ============ HERRAMIENTAS: lista de habilidades ============ -->
-  <section class="screen panel panel--herramientas" id="herramientas" aria-labelledby="t-herramientas">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <h2 class="ransom ransom--sm" id="t-herramientas" tabindex="-1" data-ransom-es="Herramientas" data-ransom-en="Tools">Herramientas</h2>
-
-    <div class="skills">
-      <p class="skills__head" aria-hidden="true"><span data-l="es">Habilidad</span><span data-l="en">Skill</span><span data-l="es">Tipo</span><span data-l="en">Type</span></p>
-      <ul class="skills__list">
-        <li class="skill" data-group="calc"><span class="skill__ic" aria-hidden="true"><svg><use href="#ic-calc"/></svg></span><span class="skill__name">MATLAB</span><span class="skill__cat"><span data-l="es">Cálculo numérico</span><span data-l="en">Numerical computing</span></span></li>
-        <li class="skill" data-group="calc" data-note-es="Lenguaje de la simulación de mi TFM." data-note-en="The language of my thesis simulation."><span class="skill__ic" aria-hidden="true"><svg><use href="#ic-code"/></svg></span><span class="skill__name">Python</span><span class="skill__cat"><span data-l="es">Programación</span><span data-l="en">Programming</span></span></li>
-        <li class="skill" data-group="cad"><span class="skill__ic" aria-hidden="true"><svg><use href="#ic-cube"/></svg></span><span class="skill__name">CATIA</span><span class="skill__cat">CAD</span></li>
-        <li class="skill" data-group="cad"><span class="skill__ic" aria-hidden="true"><svg><use href="#ic-cube"/></svg></span><span class="skill__name">SolidWorks</span><span class="skill__cat">CAD</span></li>
-        <li class="skill" data-group="cad"><span class="skill__ic" aria-hidden="true"><svg><use href="#ic-mesh"/></svg></span><span class="skill__name">ANSYS APDL</span><span class="skill__cat"><span data-l="es">Elementos finitos</span><span data-l="en">Finite elements</span></span></li>
-        <li class="skill" data-group="doc"><span class="skill__ic" aria-hidden="true"><svg><use href="#ic-doc"/></svg></span><span class="skill__name">LaTeX</span><span class="skill__cat"><span data-l="es">Documentación</span><span data-l="en">Typesetting</span></span></li>
-        <li class="skill" data-group="doc" data-note-es="Con él animo los vídeos de mi canal de divulgación." data-note-en="I animate my outreach channel's videos with it."><span class="skill__ic" aria-hidden="true"><svg><use href="#ic-anim"/></svg></span><span class="skill__name">Manim</span><span class="skill__cat"><span data-l="es">Animación matemática</span><span data-l="en">Maths animation</span></span></li>
-      </ul>
-    </div>
-
-    <!-- Escritorio: inventario por categorías + panel lateral (lo construye el JS desde la lista de arriba) -->
-    <div class="inv" id="inv">
-      <div class="inv__groups"></div>
-      <aside class="inv__side" aria-live="polite">
-        <svg class="inv__bg comic" data-comic="iv" data-focus="380,400" viewBox="0 0 600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
-        <div class="inv__stage" aria-hidden="true">
-          <svg class="inv__big" viewBox="-2 -2 28 28"><use class="ib-shadow" href="#ic-calc"/><use class="ib-main" href="#ic-calc"/></svg>
-        </div>
-        <div class="inv__tag">
-          <p class="inv__group"></p>
-          <h3 class="inv__name"></h3>
-          <p class="inv__cat"></p>
-          <p class="inv__note"></p>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- ============ IDIOMAS ============ -->
-  <section class="screen panel" id="idiomas" aria-labelledby="t-idiomas">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <svg class="decor decor--icon decor--mr" aria-hidden="true"><use href="#ic-idiomas"/></svg>
-    <h2 class="ransom ransom--sm" id="t-idiomas" tabindex="-1" data-ransom-es="Idiomas" data-ransom-en="Languages">Idiomas</h2>
-    <ul class="langs">
-      <li class="lang lang--native">
-        <span class="lang__code" aria-hidden="true">ES</span>
-        <span class="lang__name"><span data-l="es">Español</span><span data-l="en">Spanish</span></span>
-        <span class="lang__nbar" aria-hidden="true"><i></i></span>
-        <span class="lang__lvl"><span data-l="es">Lengua materna</span><span data-l="en">Native language</span></span>
-      </li>
-      <li class="lang" data-lv="C1">
-        <span class="lang__code" aria-hidden="true">EN</span>
-        <span class="lang__name"><span data-l="es">Inglés</span><span data-l="en">English</span></span>
-        <span class="lang__scale" aria-hidden="true"><i>A1</i><i>A2</i><i>B1</i><i>B2</i><i>C1</i><i>C2</i></span>
-        <span class="lang__lvl">C1 <small>Cambridge</small></span>
-      </li>
-      <li class="lang" data-lv="B1">
-        <span class="lang__code" aria-hidden="true">FR</span>
-        <span class="lang__name"><span data-l="es">Francés</span><span data-l="en">French</span></span>
-        <span class="lang__scale" aria-hidden="true"><i>A1</i><i>A2</i><i>B1</i><i>B2</i><i>C1</i><i>C2</i></span>
-        <span class="lang__lvl">B1 <small>DELF</small></span>
-      </li>
-    </ul>
-    <p class="note"><span data-l="es">Escala del Marco Común Europeo de Referencia (A1 a C2).</span><span data-l="en">Common European Framework of Reference scale (A1 to C2).</span></p>
-  </section>
-
-  <!-- ============ MÁS ALLÁ ============ -->
-  <section class="screen panel panel--mas" id="mas" aria-labelledby="t-mas">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <div class="decor decor--word decor--left" aria-hidden="true"><span data-l="es">Más allá</span><span data-l="en">Beyond</span></div>
-    <h2 class="ransom ransom--sm" id="t-mas" tabindex="-1" data-ransom-es="Más allá" data-ransom-en="Beyond">Más allá</h2>
-    <div class="cards">
-      <article class="card card--lead">
-        <span class="res__val res__val--ic" aria-hidden="true"><svg><use href="#ic-mas"/></svg></span>
-        <h3><span data-l="es">Divulgación</span><span data-l="en">Outreach</span></h3>
-        <p><span data-l="es">Canal propio de divulgación de matemáticas y física, con vídeos animados en Manim.</span><span data-l="en">My own maths and physics outreach channel, with videos animated in Manim.</span></p>
-      </article>
-      <article class="card card--white">
-        <span class="res__val" aria-hidden="true">2</span>
-        <h3><span data-l="es">Escenario</span><span data-l="en">On stage</span></h3>
-        <p><span data-l="es">Formación en oratoria y presentador de 2 ceremonias de graduación.</span><span data-l="en">Public speaking training and host of 2 graduation ceremonies.</span></p>
-      </article>
-      <article class="card card--stat">
-        <p class="big">10</p>
-        <p><span data-l="es">años de conservatorio de música</span><span data-l="en">years of music conservatory</span></p>
-      </article>
-    </div>
-
-    <!-- VÍDEOS DEL CANAL: pon tus vídeos verticales en assets/video1.mp4, video2.mp4 y video3.mp4 -->
-    <div class="reels">
-      <h3 class="reels__title"><span data-l="es">Del canal</span><span data-l="en">From the channel</span></h3>
-      <div class="reels__row">
-        <button class="reel media" type="button" data-src="assets/video1.mp4" data-aria-es="Ampliar el vídeo 1" data-aria-en="Open video 1 full screen">
-          <video src="assets/video1.mp4" muted loop playsinline preload="metadata" data-auto onerror="this.parentNode.classList.add('is-empty')"></video>
-          <span class="media__ph" aria-hidden="true"><span><span data-l="es">Vídeo próximamente</span><span data-l="en">Video coming soon</span></span></span>
-        </button>
-        <button class="reel media" type="button" data-src="assets/video2.mp4" data-aria-es="Ampliar el vídeo 2" data-aria-en="Open video 2 full screen">
-          <video src="assets/video2.mp4" muted loop playsinline preload="metadata" data-auto onerror="this.parentNode.classList.add('is-empty')"></video>
-          <span class="media__ph" aria-hidden="true"><span><span data-l="es">Vídeo próximamente</span><span data-l="en">Video coming soon</span></span></span>
-        </button>
-        <button class="reel media" type="button" data-src="assets/video3.mp4" data-aria-es="Ampliar el vídeo 3" data-aria-en="Open video 3 full screen">
-          <video src="assets/video3.mp4" muted loop playsinline preload="metadata" data-auto onerror="this.parentNode.classList.add('is-empty')"></video>
-          <span class="media__ph" aria-hidden="true"><span><span data-l="es">Vídeo próximamente</span><span data-l="en">Video coming soon</span></span></span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACTO: tarjeta de aviso ============ -->
-  <section class="screen panel panel--contacto" id="contacto" aria-labelledby="t-contacto">
-    <a class="back" href="#menu"><span data-l="es">Volver</span><span data-l="en">Back</span></a>
-    <svg class="decor decor--icon decor--mr" aria-hidden="true"><use href="#ic-contacto"/></svg>
-    <h2 class="ransom ransom--sm" id="t-contacto" tabindex="-1" data-ransom-es="Contacto" data-ransom-en="Contact">Contacto</h2>
-
-    <article class="notice">
-      <svg class="notice__star" aria-hidden="true"><use href="#star"/></svg>
-      <p class="notice__kicker"><span data-l="es">Aviso para el sector espacial europeo</span><span data-l="en">Notice to the European space sector</span></p>
-      <p class="notice__msg">
-        <span data-l="es">Si tu próxima misión necesita un ingeniero aeroespacial, escríbeme.</span>
-        <span data-l="en">If your next mission needs an aerospace engineer, write to me.</span>
-      </p>
-      <ul class="notice__data">
-        <li><a href="mailto:sergiogranadosferrera@gmail.com"><b><span data-l="es">Correo</span><span data-l="en">Email</span></b><span class="notice__val">sergiogranadosferrera<wbr>@gmail.com</span></a></li>
-        <li><a href="https://github.com/sergiogranadosferrera" target="_blank" rel="noopener"><b>GitHub</b><span class="notice__val">sergiogranadosferrera</span></a></li>
-        <li><a href="cv/sergio-granados-ferrera-cv.pdf" download><b>PDF</b><span class="notice__val"><span data-l="es">Descargar el CV</span><span data-l="en">Download the CV</span></span></a></li>
-      </ul>
-      <p class="notice__sign">Sergio Granados Ferrera</p>
-    </article>
-  </section>
+<footer>
+<p>roshan is a small, offline, open-source launcher for Windows, built with Rust and GPUI. Start your daily apps and commands in one click, in the right order.</p>
+</footer>
 
 </main>
-
-<!-- Cut-in: franja con el nombre de la sección -->
-<div class="cutin" id="cutin" aria-hidden="true">
-  <div class="cutin__slash"></div>
-  <div class="cutin__band"><p class="cutin__word" id="cutin-word"></p></div>
-</div>
-
-<!-- Visor a pantalla completa -->
-<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Vídeo">
-  <button class="chip lightbox__close" id="lb-close" type="button"><span data-l="es">Cerrar</span><span data-l="en">Close</span></button>
-  <div class="lightbox__frame"><video id="lb-video" controls playsinline></video></div>
-</div>
-
-<!-- Barrido diagonal de transición -->
-<div class="wipe" id="wipe" aria-hidden="true">
-  <div class="wipe__strip wipe__strip--black"></div>
-  <div class="wipe__strip wipe__strip--white"></div>
-  <div class="wipe__strip wipe__strip--red"></div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/animejs@4.0.2/lib/anime.umd.min.js"></script>
-<script src="main.js"></script>
 </body>
 </html>
